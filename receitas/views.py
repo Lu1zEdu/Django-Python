@@ -6,3 +6,7 @@ from django.shortcuts import render
 
 def index(request):
     return render(request, "Index.html")
+
+
+def receita(request):
+    return render(request, "Receita.html")

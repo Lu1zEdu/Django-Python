@@ -25,7 +25,7 @@
     <!-- Preloader -->
     <div id="preloader">
       <i class="circle-preloader"></i>
-      <img src="img/core-img/pizza.png" alt="" />
+      <img src="{% static 'img/core-img/pizza.png ' %}" alt="" />
     </div>
 
     <!-- Search Wrapper -->
@@ -53,87 +53,7 @@
       </div>
     </div>
 
-    <!-- ##### Header Area Start ##### -->
-    <header class="header-area">
-      <!-- Top Header Area -->
-      <div class="top-header-area">
-        <div class="container h-100">
-          <div class="row h-100 align-items-center justify-content-between">
-            <!-- Breaking News -->
-            <div class="col-12 col-sm-6">
-              <div class="breaking-news">
-                <div id="breakingNewsTicker" class="ticker">
-                  <ul>
-                    <li><a href="">Boas vindas!</a></li>
-                    <li><a href="">As melhores receitas</a></li>
-                    <li><a href="">Você encontra aqui!</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <!-- Top Social Info -->
-            <div class="col-12 col-sm-6">
-              <div class="top-social-info text-right">
-                <a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                <a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Navbar Area -->
-      <div class="delicious-main-menu">
-        <div class="classy-nav-container breakpoint-off">
-          <div class="container">
-            <!-- Menu -->
-            <nav
-              class="classy-navbar justify-content-between"
-              id="deliciousNav"
-            >
-              <!-- Logo -->
-              <a class="nav-brand" href="index.html"
-                ><img src="{% static 'img/core-img/logo.png' %}" alt=""
-              /></a>
-
-              <!-- Navbar Toggler -->
-              <div class="classy-navbar-toggler">
-                <span class="navbarToggler"
-                  ><span></span><span></span><span></span
-                ></span>
-              </div>
-
-              <!-- Menu -->
-              <div class="classy-menu">
-                <!-- close btn -->
-                <div class="classycloseIcon">
-                  <div class="cross-wrap">
-                    <span class="top"></span><span class="bottom"></span>
-                  </div>
-                </div>
-
-                <!-- Nav Start -->
-                <div class="classynav">
-                  <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="receita.html">Receitas</a></li>
-                  </ul>
-
-                  <!-- Formulario de busca -->
-                  <div class="search-btn">
-                    <i class="fa fa-search" aria-hidden="true"></i>
-                  </div>
-                  <!-- Formulario de busca -->
-                </div>
-                <!-- Nav End -->
-              </div>
-            </nav>
-          </div>
-        </div>
-      </div>
-    </header>
-    <!-- ##### Header Area End ##### -->
+    {% include "Partials/menu.html" %}
 
     <!-- ##### Best Receipe Area Start ##### -->
     <section class="best-receipe-area">
@@ -144,7 +64,7 @@
             <div class="single-best-receipe-area mb-30">
               <img src="{% static 'img/bg-img/foto_receita.png' %}" alt="" />
               <div class="receipe-content">
-                <a href="receita.html">
+                <a href="{% url 'receita'%}">
                   <h5>Nome da receita</h5>
                 </a>
               </div>
@@ -156,7 +76,7 @@
             <div class="single-best-receipe-area mb-30">
               <img src="{% static 'img/bg-img/foto_receita.png' %}" alt="" />
               <div class="receipe-content">
-                <a href="receita.html">
+                <a href="{% url 'receita'%}">
                   <h5>Nome da receita</h5>
                 </a>
               </div>
@@ -168,7 +88,7 @@
             <div class="single-best-receipe-area mb-30">
               <img src="{% static 'img/bg-img/foto_receita.png' %}" alt="" />
               <div class="receipe-content">
-                <a href="receita.html">
+                <a href="{% url 'receita'%}">
                   <h5>Nome da receita</h5>
                 </a>
               </div>
@@ -180,7 +100,7 @@
             <div class="single-best-receipe-area mb-30">
               <img src="{% static 'img/bg-img/foto_receita.png' %}" alt="" />
               <div class="receipe-content">
-                <a href="receita.html">
+                <a href="{% url 'receita'%}">
                   <h5>Nome da receita</h5>
                 </a>
               </div>
@@ -192,7 +112,7 @@
             <div class="single-best-receipe-area mb-30">
               <img src="{% static 'img/bg-img/foto_receita.png' %}" alt="" />
               <div class="receipe-content">
-                <a href="receita.html">
+                <a href="{% url 'receita'%}">
                   <h5>Nome da receita</h5>
                 </a>
               </div>
@@ -204,7 +124,7 @@
             <div class="single-best-receipe-area mb-30">
               <img src="{% static 'img/bg-img/foto_receita.png' %}" alt="" />
               <div class="receipe-content">
-                <a href="receita.html">
+                <a href="{% url 'receita'%}">
                   <h5>Nome da receita</h5>
                 </a>
               </div>
@@ -216,27 +136,7 @@
     <!-- ##### Best Receipe Area End ##### -->
 
     <!-- ##### Footer Area Start ##### -->
-    <footer class="footer-area">
-      <div class="container h-100">
-        <div class="row h-100">
-          <div
-            class="col-12 h-100 d-flex flex-wrap align-items-center justify-content-between"
-          >
-            <!-- Footer Social Info -->
-            <div class="footer-social-info text-right">
-              <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-              <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-            </div>
-            <!-- Footer Logo -->
-            <div class="footer-logo">
-              <a href="index.html"
-                ><img src="img/core-img/logo.png" alt=""
-              /></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
+    {% include 'partials/footer.html' %}
     <!-- ##### Footer Area Start ##### -->
 
     <!-- ##### All Javascript Files ##### -->
