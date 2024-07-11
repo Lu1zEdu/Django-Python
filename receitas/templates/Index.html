@@ -1,96 +1,55 @@
+{% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="description" content="" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-
-    <!-- Título -->
-    <title>Alura Receitas</title>
-
-    <!-- Favicon -->
-    <link rel="icon" href="{% static 'img/core-img/favicon.ico' %}" />
-
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="{% static 'site.css' %} " />
-  </head>
-
-  <body>
+{% block content %}
     <!-- Preloader -->
     <div id="preloader">
-      <i class="circle-preloader"></i>
-      <img src="{% static 'img/core-img/pizza.png ' %}" alt="" />
+        <i class="circle-preloader"></i>
+        <img src="{% static 'img/core-img/pizza.png' %}" alt="">
     </div>
 
     <!-- Search Wrapper -->
     <div class="search-wrapper">
-      <!-- Close Btn -->
-      <div class="close-btn">
-        <i class="fa fa-times" aria-hidden="true"></i>
-      </div>
+        <!-- Close Btn -->
+        <div class="close-btn"><i class="fa fa-times" aria-hidden="true"></i></div>
 
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <form action="#" method="post">
-              <input
-                type="search"
-                name="search"
-                placeholder="O que está procurando..."
-              />
-              <button type="submit">
-                <i class="fa fa-search" aria-hidden="true"></i>
-              </button>
-            </form>
-          </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <form action="#" method="post">
+                        <input type="search" name="search" placeholder="O que está procurando...">
+                        <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                    </form>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
 
-    {% include "Partials/menu.html" %}
+    {% include 'partials/menu.html' %}
 
     <!-- ##### Best Receipe Area Start ##### -->
     <section class="best-receipe-area">
-      <div class="container">
-        <div class="row">
-          {% for chave , valor in nome_da_receita.items %}
-          <!-- Single Best Receipe Area -->
-          <div class="col-12 col-sm-6 col-lg-4">
-            <div class="single-best-receipe-area mb-30">
-              <img src="{% static 'img/bg-img/foto_receita.png' %}" alt="" />
-              <div class="receipe-content">
-                <a href="{% url 'receita'%}">
-                  <h5>{{ valor }}</h5>
-                </a>
-              </div>
+        <div class="container">
+            <div class="row">
+                {% if receitas %}
+                {% for receita in receitas %}
+                <!-- Single Best Receipe Area -->
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="single-best-receipe-area mb-30">
+                        <img src="{% static 'img/bg-img/foto_receita.png' %}" alt="">
+                        <div class="receipe-content">
+                            <a href="{% url 'receita' receita.id %}">
+                                <h5>{{ receita.nome_receita }}</h5>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                {% else %}
+                {% endif %}
             </div>
-          </div>
-          {% endfor %}
         </div>
-      </div>
     </section>
     <!-- ##### Best Receipe Area End ##### -->
 
-    <!-- ##### Footer Area Start ##### -->
     {% include 'partials/footer.html' %}
-    <!-- ##### Footer Area Start ##### -->
-
-    <!-- ##### All Javascript Files ##### -->
-    <!-- jQuery-2.2.4 js -->
-    <script src="{% static 'js/jquery/jquery-2.2.4.min.js' %}"></script>
-    <!-- Popper js -->
-    <script src="{% static 'js/bootstrap/popper.min.js' %}"></script>
-    <!-- Bootstrap js -->
-    <script src="{% static 'js/bootstrap/bootstrap.min.j' %}s"></script>
-    <!-- All Plugins js -->
-    <script src="{% static 'js/plugins/plugins.js' %}"></script>
-    <!-- Active js -->
-    <script src="{% static 'js/active.js' %}"></script>
-  </body>
-</html>
+{% endblock %}

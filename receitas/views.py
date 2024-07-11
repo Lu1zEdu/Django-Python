@@ -1,21 +1,19 @@
-from django.shortcuts import render
-
-
-# Create your views here.
-
+from django.shortcuts import render, get_list_or_404, get_object_or_404
+from .models import Receita
 
 def index(request):
-    receitas = {
-        1: "Sorvete",
-        2: "Coxinha",
-        3: "Pastel",
-        4: "Bolo",
-        5: "Torta",
-        6: "Sushi",
+    receitas = Receita.objects.all()
+
+    dados = {
+        'receitas' : receitas
     }
-    dados = {"nome_da_receita": receitas}
-    return render(request, "Index.html", dados)
+    return render(request,'index.html', dados)
 
+def receita(request, receita_id):
+    receita = get_object_or_404(Receita, pk=receita_id)
 
-def receita(request):
-    return render(request, "Receita.html")
+    receita_a_exibir = {
+        'receita' : receita
+    }
+
+    return render(request,'receita.html', receita_a_exibir)
