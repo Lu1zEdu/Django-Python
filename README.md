@@ -20,7 +20,7 @@ Este repositório contém um site completo de receitas desenvolvido com Django. 
 ## 🚀 Como Utilizar
 1. Clone este repositório:
    ```bash
-   git clone https://github.dev/Lu1zEdu/Django-Python
+   git clone https://github.com/Lu1zEdu/Django-Python
    ```
 2. Navegue até o diretório do projeto:
    ```bash
